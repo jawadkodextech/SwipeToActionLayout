@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,10 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:padding="16dp"
-            android:textColor="#fff"
-            android:text="Swipe to action"
             android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/swipe_to_action"
+            android:textColor="#fff"
             android:textSize="32sp" />
 
     </github.com.st235.lib_swipetoactionlayout.SwipeToActionLayout>
@@ -30,14 +29,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Vibrate on quick action" />
+        android:text="@string/vibrate_on_quick_action" />
 
     <CheckBox
         android:id="@+id/quickActionCheckBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Allow quick action" />
+        android:text="@string/allow_quick_action" />
 
     <st235.com.github.flow_layout.FlowLayout
         android:layout_width="match_parent"
@@ -47,25 +46,25 @@
             android:id="@+id/left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gravity left" />
+            android:text="@string/gravity_left" />
 
         <Button
             android:id="@+id/right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gravity right" />
+            android:text="@string/gravity_right" />
 
         <Button
             android:id="@+id/start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gravity start" />
+            android:text="@string/gravity_start" />
 
         <Button
             android:id="@+id/end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gravity end" />
+            android:text="@string/gravity_end" />
 
     </st235.com.github.flow_layout.FlowLayout>
 
@@ -77,19 +76,19 @@
             android:id="@+id/open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open" />
+            android:text="@string/open" />
 
         <Button
             android:id="@+id/close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Close" />
+            android:text="@string/close" />
 
         <Button
             android:id="@+id/openFully"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open fully" />
+            android:text="@string/open_fully" />
 
     </st235.com.github.flow_layout.FlowLayout>
 

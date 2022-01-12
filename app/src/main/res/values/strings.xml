@@ -4,4 +4,16 @@
     <string name="action_call">Call</string>
     <string name="action_email">Email</string>
     <string name="action_duo">Chat</string>
+    <string name="open_fully">Open fully</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="gravity_end">Gravity end</string>
+    <string name="gravity_start">Gravity start</string>
+    <string name="gravity_right">Gravity right</string>
+    <string name="gravity_left">Gravity left</string>
+    <string name="allow_quick_action">Allow quick action</string>
+    <string name="vibrate_on_quick_action">Vibrate on quick action</string>
+    <string name="swipe_to_action">Swipe to action</string>
+    <string name="widget_showcase">Widget showcase</string>
+    <string name="usage_example">Usage example</string>
 </resources>

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="#fff">
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/widgetShowcase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Widget showcase" />
+        android:text="@string/widget_showcase" />
 
     <Button
         android:id="@+id/usageExample"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Usage example" />
+        android:text="@string/usage_example" />
 
 </LinearLayout>

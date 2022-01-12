@@ -23,10 +23,13 @@ internal class XmlMenuParser(private val context: Context) {
 
     fun inflate(menuId: Int): List<SwipeAction> {
         val parser = context.resources.getLayout(menuId)
-        parser.use {
+        parser.let {
             val attrs = Xml.asAttributeSet(parser)
             return readBottomBar(parser, attrs)
         }
+//        parser.use {
+//
+//        }
     }
 
     private fun readBottomBar(parser: XmlPullParser,

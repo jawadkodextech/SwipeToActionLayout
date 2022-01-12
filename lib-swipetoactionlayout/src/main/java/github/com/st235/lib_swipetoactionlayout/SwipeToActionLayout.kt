@@ -1,6 +1,8 @@
 package github.com.st235.lib_swipetoactionlayout
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.*
 import androidx.annotation.MenuRes
@@ -59,7 +61,8 @@ class SwipeToActionLayout @JvmOverloads constructor(
 
         internal companion object {
             fun findById(id: Int): MenuGravity =
-                values().find { it.id == id } ?: throw IllegalArgumentException("Cannot find value with id: $id")
+                values().find { it.id == id }
+                    ?: throw IllegalArgumentException("Cannot find value with id: $id")
         }
     }
 
@@ -102,9 +105,18 @@ class SwipeToActionLayout @JvmOverloads constructor(
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwipeToActionLayout)
 
-        gravity = MenuGravity.findById(typedArray.getInt(R.styleable.SwipeToActionLayout_sal_gravity, MenuGravity.RIGHT.id))
-        isFullActionSupported = typedArray.getBoolean(R.styleable.SwipeToActionLayout_sal_isFullActionSupported, false)
-        shouldVibrateOnQuickAction = typedArray.getBoolean(R.styleable.SwipeToActionLayout_sal_shouldVibrateOnQuickAction, false)
+        gravity = MenuGravity.findById(
+            typedArray.getInt(
+                R.styleable.SwipeToActionLayout_sal_gravity,
+                MenuGravity.RIGHT.id
+            )
+        )
+        isFullActionSupported =
+            typedArray.getBoolean(R.styleable.SwipeToActionLayout_sal_isFullActionSupported, false)
+        shouldVibrateOnQuickAction = typedArray.getBoolean(
+            R.styleable.SwipeToActionLayout_sal_shouldVibrateOnQuickAction,
+            false
+        )
 
         val menuId = typedArray.getResourceId(R.styleable.SwipeToActionLayout_sal_items, View.NO_ID)
         if (menuId != View.NO_ID) {
@@ -120,6 +132,12 @@ class SwipeToActionLayout @JvmOverloads constructor(
                 QuickActionsStates.FULL_OPENED -> {
                     menuListener?.onFullyOpened(this, actions.last())
                 }
+                QuickActionsStates.OPENED -> {
+
+                }
+                QuickActionsStates.CLOSED -> {
+
+                }
             }
 
         }
@@ -128,7 +146,9 @@ class SwipeToActionLayout @JvmOverloads constructor(
             when (state) {
                 QuickActionsStates.FULL_OPENED -> {
                     if (shouldVibrateOnQuickAction) {
-                        performHapticFeedback(HapticFeedbackConstants.CLOCK_TICK)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            performHapticFeedback(HapticFeedbackConstants.CLOCK_TICK)
+                        }
                     }
                 }
                 QuickActionsStates.OPENED -> {
@@ -286,6 +306,7 @@ class SwipeToActionLayout @JvmOverloads constructor(
         return shouldIntercept
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event == null) {
             return super.onTouchEvent(event)

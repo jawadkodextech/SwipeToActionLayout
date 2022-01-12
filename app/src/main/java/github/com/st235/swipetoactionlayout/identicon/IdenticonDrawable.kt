@@ -1,6 +1,9 @@
 package github.com.st235.swipetoactionlayout.identicon
 
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.ColorFilter
+import android.graphics.Paint
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
@@ -9,11 +12,11 @@ import java.security.NoSuchAlgorithmException
 import kotlin.math.min
 
 class IdenticonDrawable(
-    private val text: String,
+    text: String,
     @ColorInt private val activeCellsColor: Int,
     @ColorInt private val inactiveCellsColor: Int,
     @IntRange(from = 1L) private val fieldSize: Int = 5
-): Drawable() {
+) : Drawable() {
 
     private companion object {
         const val HASH_ALGORITHM = "SHA-256"

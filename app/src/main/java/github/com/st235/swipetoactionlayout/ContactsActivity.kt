@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_contacts.*
+import github.com.st235.swipetoactionlayout.databinding.ActivityContactsBinding
 
-class ContactsActivity: AppCompatActivity() {
+//import kotlinx.android.synthetic.main.activity_contacts.*
+
+class ContactsActivity : AppCompatActivity() {
 
     private val adapter = ContactsAdapter(
         mutableListOf(
@@ -31,7 +33,7 @@ class ContactsActivity: AppCompatActivity() {
             ContactInfo("Landyn Martin", "Product Designer", true),
             ContactInfo("Madalyn Savage", "Software Engineer", true),
             ContactInfo("Cindy Moss", "Sales Manager", true),
-            ContactInfo("Alexander Dadukin", "Cats Lover", true, true),
+            ContactInfo("Alexander Dadukin", "Cats Lover", isOnline = true, isAuthor = true),
             ContactInfo("Mathew Tapia", "Software Engineer", true),
             ContactInfo("Ayanna Shields", "Copyrighter", false)
         )
@@ -43,13 +45,14 @@ class ContactsActivity: AppCompatActivity() {
             R.id.star -> openRepo()
         }
     }
-
+    private lateinit var binding: ActivityContactsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contacts)
+        binding = ActivityContactsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
     }
 
     private fun call(item: ContactInfo) {
